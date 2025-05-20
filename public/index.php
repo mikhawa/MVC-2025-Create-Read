@@ -11,8 +11,30 @@ session_start();
 require_once "../config-dev.php";
 
 // notre connexion PDO
+try{
+    // instanciation de PDO
+    $db = new PDO(DB_DSN,DB_LOGIN,DB_PWD);
+    // par défaut, on obtient des tableaux associatifs
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
+    // on active l'affichage des erreurs
+    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+}catch(Exception $e){
+    die($e->getMessage());
+}
 
 // ici nos contrôleurs
+// si nous sommes connectés
+if(isset($_SESSION['userlogin']))
+{
+    // nous prenons le contrôleur privé
+    require_once "../controller/PrivateController.php";
+
+// non connectés
+}else {
+    // chargement du routeur public
+    require_once "../controller/PublicController.php";
+}
 
 echo '<h4>session_id() ou SID</h4>';
 var_dump(session_id());
