@@ -10,11 +10,12 @@ session_start();
 // dépendances
 require_once "../config-dev.php";
 
+// notre connexion PDO
 
+// ici nos contrôleurs
 
 echo '<h4>session_id() ou SID</h4>';
 var_dump(session_id());
-var_dump($db);
 echo '<h4>$_GET</h4>';
 var_dump($_GET);
 echo '<h4>$_SESSION</h4>';
