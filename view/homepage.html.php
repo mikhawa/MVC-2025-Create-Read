@@ -48,9 +48,9 @@
                         <h2 class="text-secondary fw-bolder mb-4">Articles</h2>
                         <!-- Download resume button-->
                         <!-- Note: Set the link href target to a PDF file within your project-->
-                        <p class="text-primary fw-bolder mb-4" >
+                        <h3 class="text-primary fw-bolder mb-4" >
                             Il y a X articles
-                        </p>
+                        </h3>
                     </div>
                     <!-- Articles Card 1-->
                     <div class="card shadow border-0 rounded-4 mb-5">

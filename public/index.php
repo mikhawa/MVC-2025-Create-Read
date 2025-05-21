@@ -9,6 +9,7 @@ session_start();
 
 // dépendances
 require_once "../config-dev.php";
+require_once "../model/ArticleModel.php";
 
 // notre connexion PDO
 try{

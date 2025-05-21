@@ -3,13 +3,13 @@
 
 /**
  * @param PDO $connection
- * @param $publish
+ * @param bool $publish = true
  * @return array
  *  Fonction qui récupère tous les articles de la table article
  *  par article_date_published DESC, l'argument publish à true
  *  ne récupère pas les articles qui ne sont pas publiés (0)
  */
-function getArticles(PDO $connection, $publish = true): array
+function getArticles(PDO $connection, bool $publish = true): array
 {
     $sql="
     SELECT a.idarticle, a.article_title, a.article_text, a.article_date_published, 
@@ -23,9 +23,10 @@ function getArticles(PDO $connection, $publish = true): array
     $query = $connection->prepare($sql);
     try{
         $publish = $publish ? 1 : 0;
-        $request = $query->execute([$publish]);
+        $query->execute([$publish]);
+        $response = $query->fetchAll();
         $query->closeCursor();
-        return $request->fetchAll();
+        return $response;
     }catch(Exception $e){
         die($e->getMessage());
     }
