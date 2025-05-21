@@ -45,47 +45,48 @@
                 <!-- Articles Section-->
                 <section>
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h2 class="text-secondary fw-bolder mb-4">Articles</h2>
-                        <!-- Download resume button-->
-                        <!-- Note: Set the link href target to a PDF file within your project-->
+                        <h2 class="text-secondary fw-bolder mb-4">Nos articles</h2>
+                        <?php
+                        if(empty($articles)):
+                        ?>
                         <h3 class="text-primary fw-bolder mb-4" >
-                            Il y a X articles
+                            Il n'y a pas encore d'article.
                         </h3>
                     </div>
+                        <?php
+                        else:
+                            $nbArticles = count($articles);
+                            $pluriel = ($nbArticles > 1) ? 's' : '';
+                        ?>
+                        <h3 class="text-primary fw-bolder mb-4" >
+                            Il y a <?=$nbArticles?> article<?= $pluriel?>
+                        </h3>
+
+                    </div>
+                    <?php
+                            foreach($articles as $article):
+                    ?>
                     <!-- Articles Card 1-->
                     <div class="card shadow border-0 rounded-4 mb-5">
                         <div class="card-body p-5">
                             <div class="row align-items-center gx-5">
                                 <div class="col text-center text-lg-start mb-4 mb-lg-0">
                                     <div class="bg-light p-4 rounded-4">
-                                        <div class="text-primary fw-bolder mb-2">2019 - Present</div>
-                                        <div class="small fw-bolder">Web Developer</div>
-                                        <div class="small text-muted">Stark Industries</div>
-                                        <div class="small text-muted">Los Angeles, CA</div>
+                                        <div class="text-primary fw-bolder mb-2"><?=$article['article_title']?></div>
+                                        <div class="small fw-bolder">Par <?=$article['user_name']?></div>
+                                        <div class="small text-muted">Le <?=$article['article_date_published']?></div>
+                                        <!--<div class="small text-muted">Los Angeles, CA</div>-->
                                     </div>
                                 </div>
-                                <div class="col-lg-8"><div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div></div>
+                                <div class="col-lg-8"><div><?=$article['article_text']?></div></div>
                             </div>
                         </div>
                     </div>
-                    <!-- Experience Card 2-->
-                    <div class="card shadow border-0 rounded-4 mb-5">
-                        <div class="card-body p-5">
-                            <div class="row align-items-center gx-5">
-                                <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                    <div class="bg-light p-4 rounded-4">
-                                        <div class="text-primary fw-bolder mb-2">2017 - 2019</div>
-                                        <div class="small fw-bolder">SEM Specialist</div>
-                                        <div class="small text-muted">Wayne Enterprises</div>
-                                        <div class="small text-muted">Gotham City, NY</div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-8"><div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div></div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                        endforeach;
+                    endif;
+                    ?>
                 </section>
-
             </div>
         </div>
     </div>
