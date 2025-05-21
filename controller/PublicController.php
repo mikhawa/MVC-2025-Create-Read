@@ -1,4 +1,4 @@
 <?php
-# exemple5MVC/controller/PublicController.php
+# controller/PublicController.php
 
 include_once "../view/homepage.html.php";

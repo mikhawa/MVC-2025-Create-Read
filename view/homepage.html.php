@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="description" content="Page d'accueil de mvc-2025-create-read" />
+    <meta name="author" content="Mikhawa | CF2m" />
     <title>mvc-2025-create-read | Accueil</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -94,7 +94,7 @@
 <footer class="bg-white py-4 mt-auto">
     <div class="container px-5">
         <div class="row align-items-center justify-content-center flex-column flex-sm-row">
-            <div class="col-auto"><div class="small m-0">Copyright &copy; Mikhawa <?=date('Y')?></div>
+            <div class="col-auto"><div class="small m-0">Copyright &copy; CF2m <?=date('Y')?></div>
             </div>
 
         </div>
