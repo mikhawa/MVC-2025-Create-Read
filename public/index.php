@@ -36,6 +36,8 @@ if(isset($_SESSION['userlogin']))
     require_once "../controller/PublicController.php";
 }
 
+echo '<div class="bg-light py-4 mt-auto">
+    <div class="container px-5"><h3>Barre de débogage</h3><hr>';
 echo '<h4>session_id() ou SID</h4>';
 var_dump(session_id());
 echo '<h4>$_GET</h4>';
@@ -44,6 +46,9 @@ echo '<h4>$_SESSION</h4>';
 var_dump($_SESSION);
 echo '<h3>$_POST</h3>';
 var_dump($_POST);
+echo '</div></div>';
+
 
 
 // bonne pratique
+$db = null;
