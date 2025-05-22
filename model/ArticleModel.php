@@ -12,7 +12,7 @@
 function getArticles(PDO $connection, bool $publish = true): array
 {
     $sql="
-    SELECT a.idarticle, a.article_title, LEFT(a.article_text,400) AS article_text, a.article_date_published, 
+    SELECT a.idarticle, a.article_title, LEFT(a.article_text,500) AS article_text, a.article_date_published, 
            a.article_date_created, a.article_is_published, u.iduser, u.user_name    
     FROM article a
     JOIN user u 

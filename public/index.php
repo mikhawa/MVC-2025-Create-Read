@@ -7,36 +7,29 @@
 
 session_start();
 
-// dépendances
+// configuration de la connexion à la base de données
 require_once "../config-dev.php";
-require_once "../model/ArticleModel.php";
+
 
 // notre connexion PDO
 try{
     // instanciation de PDO
-    $db = new PDO(DB_DSN,DB_LOGIN,DB_PWD);
-    // par défaut, on obtient des tableaux associatifs
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
-    // on active l'affichage des erreurs
-    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $db = new PDO(DB_DSN,
+        DB_LOGIN,
+        DB_PWD,
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        ]);
 
 }catch(Exception $e){
     die($e->getMessage());
 }
 
-// ici nos contrôleurs
-// si nous sommes connectés
-if(isset($_SESSION['userlogin']))
-{
-    // nous prenons le contrôleur privé
-    require_once "../controller/PrivateController.php";
+// Chargement du routeur
+require_once "../controller/RouterController.php";
 
-// non connectés
-}else {
-    // chargement du routeur public
-    require_once "../controller/PublicController.php";
-}
-
+// Débogage
 echo '<div class="bg-light py-4 mt-auto">
     <div class="container px-5"><h3>Barre de débogage</h3><hr>';
 echo '<h4>session_id() ou SID</h4>';
